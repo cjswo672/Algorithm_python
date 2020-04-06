@@ -1,19 +1,19 @@
-def solution(food_times, k):  # pop 안하고
+def solution(food_times, k):    # 통과
     food_times = [[food_time, i] for i, food_time in enumerate(food_times)]
-    food_times = sorted(food_times)
-    length = len(food_times)
-    pos, prev, cnt = 0, 0, 0
+    food_times.sort()
+    pos, lower, cnt = 0, 0, 0
     while pos < len(food_times):
-        cnt = (food_times[pos][0] - food_times[prev][0]) * (length - pos)
+        tmp = food_times[pos]
+        cnt = (tmp[0] - lower) * (len(food_times) - pos)
         if k < cnt: break
-        k, prev = k - cnt, pos
-        while pos < len(food_times) and food_times[pos][0] == food_times[prev][0]:
+        k, lower = k - cnt, tmp[0]
+        while pos < len(food_times) and tmp[0] == food_times[pos][0]:
             pos += 1
 
-    if food_times:
-        food_times = sorted(food_times, key=lambda food_time: food_time[1])
-        k = (k + len(food_times)) % len(food_times)
-        return food_times[k][1] + 1
+    if pos < len(food_times):
+        res = sorted(food_times[pos:], key=lambda food_time: food_time[1])
+        k = (k + len(res)) % len(res)
+        return res[k][1] + 1
     return -1
 
 
@@ -70,6 +70,8 @@ import random
 
 max_v = 100_000_000
 test1 = [random.randint(1, max_v) for i in range(200000)]
+print(solution([3, 1, 2], 5))
+print(solution([3, 1, 2], 6))
 print(solution1([3, 1, 2], 5))
 print(solution1([3, 1, 2], 6))
-# print(solution1(test1, 2 * (10 ** 13)))
+# print(solution(test1, 2 * (10 ** 13)))
