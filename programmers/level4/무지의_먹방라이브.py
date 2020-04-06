@@ -3,11 +3,10 @@ def solution(food_times, k):    # 통과
     food_times.sort()
     pos, lower, cnt = 0, 0, 0
     while pos < len(food_times):
-        tmp = food_times[pos]
-        cnt = (tmp[0] - lower) * (len(food_times) - pos)
+        cnt = (food_times[pos][0] - lower) * (len(food_times) - pos)
         if k < cnt: break
-        k, lower = k - cnt, tmp[0]
-        while pos < len(food_times) and tmp[0] == food_times[pos][0]:
+        k, lower = k - cnt, food_times[pos][0]
+        while pos < len(food_times) and lower == food_times[pos][0]:
             pos += 1
 
     if pos < len(food_times):
