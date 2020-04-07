@@ -20,11 +20,11 @@ class Block:
             for c in range(self.c1, self.c2 + 1):
                 if board[r][c] != self.value and board[r][c] != 0:
                     return False
-        self.fill_zero(board)
+        self.update_board(board)
         self.removed = True
         return True
 
-    def fill_zero(self, board):
+    def update_board(self, board):
         for c in range(self.c1, self.c2 + 1):
             flag = False
             for r in range(0, len(board)):
