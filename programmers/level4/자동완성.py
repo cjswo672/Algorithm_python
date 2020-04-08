@@ -1,7 +1,7 @@
 def solution(words):
-    selection = True
+    selection = 0
     if selection: return solution1(words)
-    else: return solution1(words)
+    else: return solution2(words)
 
 
 def solution1(words):
