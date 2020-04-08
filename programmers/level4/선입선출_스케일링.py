@@ -27,27 +27,6 @@ def solution(n, cores):
     return answer+1
 
 
-def solution1(n, cores):  # Parametric Search 효율성 2개 x
-    if n <= len(cores): return n;
-    l, r = min(cores) * n // len(cores), max(cores) * n
-    while l <= r:
-        core, cnt = len(cores), 0
-        mid = (l + r) >> 1
-
-        for c in cores:
-            core += (mid // c)
-            if mid % c == 0:
-                cnt += 1
-
-        if n > core: l = mid + 1
-        elif n <= core - cnt: r = mid - 1;
-        else:
-            tmp = 0
-            for i in range(len(cores)):
-                if mid % cores[i] == 0: tmp += 1
-                if tmp == n - (core - cnt): return i + 1
-
-
 def solution2(n, cores):  # 실패
     answer = 0
     arr = [[] for _ in range(max(cores) * n)]
