@@ -1,6 +1,6 @@
 class Trie:
     def __init__(self):
-        self.children = [None for _ in range(26)]
+        self.children = dict()
         self.has_child = self.terminate = False
 
 
@@ -16,23 +16,21 @@ def solution(words):
 
 def find(root, word):
     runner = root
-    for i in range(len(word)):
-        n = ord(word[i]) - 97
-        if not runner.children[n].has_child:
+    for i, ch in enumerate(word):
+        if not runner.children[ch].has_child:
             return i + 1
-        runner = runner.children[n]
+        runner = runner.children[ch]
     return len(word)
 
 
 def get_tries(root, word):
     runner = root
     for ch in word:
-        n = ord(ch) - 97
-        if runner.children[n] is None:
-            runner.children[n] = Trie()
+        if ch not in runner.children:
+            runner.children[ch] = Trie()
         else:
-            runner.children[n].has_child = True
-        runner = runner.children[n]
+            runner.children[ch].has_child = True
+        runner = runner.children[ch]
     runner.terminate = True
 
 
