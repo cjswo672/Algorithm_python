@@ -1,7 +1,9 @@
-# 효율성 3개 시간초과, 정확성 2개 틀림
+# r값 수정 후
+# 효율성 전부 시간초과
+# 정확성 다 맞음
 def solution(lands, P, Q):
     lands = sum(lands, [])
-    l, r, v = 0, max(lands), 0
+    l, r, v = 0, max(lands) * max(P, Q) * len(lands), 0
     while l <= r:
         m, v = (l + r) >> 1, 0
         a, b, c = 0, 0, 0  # m + 1 층, m 층, m - 1층
