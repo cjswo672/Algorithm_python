@@ -44,7 +44,7 @@ def solution(board):
         flag = False
         for block in blocks:
             if not block.removed and block.remove(board):
-                answer, flag = answer + 1, True
+                flag, answer = True, answer + 1
         if not flag: break
     return answer
 

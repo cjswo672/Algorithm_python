@@ -26,4 +26,4 @@ def solution3(n):
     return memo[n]
 
 
-print(solution(5))
+print(solution3(5))
