@@ -9,8 +9,7 @@ def solution(cookie):
         b = set(accumulate(cookie[m+1:]))
         c = a & b
 
-        if c:
-            answer = max(*c, answer)
+        if c: answer = max(*c, answer)
     return answer
 
 

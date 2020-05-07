@@ -1,4 +1,4 @@
-def solution(begin, end):
+def solution(begin, end):  # TODO 문제 개편됨.
     # 문제 조건이 잘못됨 (1천만 까지의 블록을 사용할 수 있으나 실제론 5억이 통과됨)
     # 원래 풀이
     # 1) 1부터 end 까지 순회

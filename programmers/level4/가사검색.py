@@ -46,4 +46,4 @@ def find(root, query):
     return runner.count
 
 
-print(solution(["frodo", "front", "frost", "frozen", "frame", "kakao"], ["frx??", "????o", "fr???", "fro???", "pro?"]))
+print(solution(["frodo", "front", "frost", "frozen", "frame", "kakao"], ["fro??", "????o", "fr???", "fro???", "pro?"]))
