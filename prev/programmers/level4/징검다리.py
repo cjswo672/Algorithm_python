@@ -1,5 +1,6 @@
 def solution(distance, rocks, n):
     rocks.sort()
+    rocks.append(distance)
     l, r = 0, distance
     while l < r:
         mid = (l + r + 1) // 2

@@ -19,5 +19,4 @@ def solution2(money):
     return max(ax, ay, by, bz)
 
 
-print(solution([10, 2, 3, 100, 1]))
-print(solution2([10, 2, 3, 100, 1]))
+print(solution([1,2,3,1,5]))
